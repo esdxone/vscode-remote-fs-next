@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as upath from 'upath';
 import Ftp from 'jsftp';
-import * as PQueue from 'p-queue';
+import PQueue from 'p-queue';
 import { promptForPassword } from '../host';
 import RemoteFileSystemProvider, { FileSystemError } from '../core/RemoteFileSystemProvider';
 import { ConnectClient } from '../core/ConnectManager';
