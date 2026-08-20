@@ -5,6 +5,7 @@
 * Update TypeScript, VS Code typings, linting, and packaging tooling for current VS Code releases.
 * Fix extension activation with the CommonJS `p-queue` dependency.
 * Add automated compatibility checks and CI packaging.
+* Bundle the extension with esbuild while keeping `ssh2` external for runtime compatibility.
 * Validate installation, activation, FTP/SFTP connections, and common file operations in a current VS Code release.
 
 ## 0.0.15 - 2019-04-27
