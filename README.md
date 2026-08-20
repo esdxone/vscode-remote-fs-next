@@ -2,9 +2,16 @@
 
 Remote FS Next is a maintained fork of [Remote FS](https://github.com/liximomo/vscode-remote-fs), originally created by liximomo (X.L). It preserves the original extension's `remotefs.remote` settings, `remotefs.*` commands, and `ftp://` and `sftp://` URI schemes.
 
-[![Paypal Donations](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BY89QD47D7MPS&source=url) [![PayPal Me](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/liximomo)
-
 Working with any file in everywhere like they are in local with vscode.
+
+## What's different in Remote FS Next
+
+* Supports current Visual Studio Code releases with updated TypeScript and VS Code API typings.
+* Uses the maintained `ssh2` 1.x stack instead of the obsolete `ssh2` 0.8 / `ssh2-streams` stack, fixing the `isDate` runtime error on current Node.js versions without patching `node_modules`.
+* Uses current linting, testing, and VSIX packaging tooling.
+* Includes automated checks that protect the public Remote FS compatibility contracts.
+* Uses the Remote FS Next name and the maintained fork's repository, issue tracker, and project links.
+* Keeps existing configurations and workspaces compatible: `remotefs.remote`, `remotefs.*`, `ftp://`, and `sftp://` remain unchanged.
 
 ## Attribution and license
 
@@ -108,20 +115,3 @@ Open test at `rootPath`.
 ```
 code --folder-uri ftp://test/
 ```
----
-
-## Donation
-
-If this project help you reduce time to develop, you can give me a cup of coffee :)
-
-### Wechat
-
-<img width="140" alt="Wechat" src="https://raw.githubusercontent.com/liximomo/vscode-sftp/master/assets/wechat.png"/>
-
-### Alipay
-
-<img width="140" alt="Alipay" src="https://raw.githubusercontent.com/liximomo/vscode-sftp/master/assets/alipay.png"/>
-
-### PayPal
-
-[![Paypal Donations](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BY89QD47D7MPS&source=url) [![PayPal Me](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/liximomo)
