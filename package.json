@@ -2,8 +2,8 @@
   "name": "remote-fs-next",
   "displayName": "Remote FS Next",
   "description": "Work with remote FTP and SFTP files in Visual Studio Code.",
-  "version": "0.0.16",
-  "license": "MIT",
+  "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE",
   "publisher": "esdxone",
   "author": "esdxone",
   "engines": {
