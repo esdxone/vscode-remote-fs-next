@@ -3,7 +3,7 @@ import { access, readFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { build } from 'esbuild';
+import { build, context } from 'esbuild';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -74,7 +74,7 @@ const projectSources = {
   }
 };
 
-await build({
+const buildOptions = {
   absWorkingDir: os.tmpdir(),
   entryPoints: ['project:src/extension.ts'],
   bundle: true,
@@ -84,4 +84,12 @@ await build({
   outfile: path.join(projectRoot, 'dist/extension.js'),
   plugins: [projectSources],
   logLevel: 'info'
-});
+};
+
+if (process.argv.includes('--watch')) {
+  const buildContext = await context(buildOptions);
+  await buildContext.watch();
+  console.log('Watching for changes...');
+} else {
+  await build(buildOptions);
+}
