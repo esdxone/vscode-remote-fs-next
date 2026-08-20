@@ -37,11 +37,11 @@ jobs:
         run: npm test
 
       - name: Package VSIX
-        run: npm run package -- --out remote-fs-next-0.1.0.vsix
+        run: npm run package -- --out remote-fs-next.vsix
 
       - name: Upload VSIX
         uses: actions/upload-artifact@v4
         with:
           name: remote-fs-next-vsix
-          path: remote-fs-next-0.1.0.vsix
+          path: remote-fs-next.vsix
           if-no-files-found: error
