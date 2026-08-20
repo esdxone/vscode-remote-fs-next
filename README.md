@@ -17,6 +17,20 @@ Working with any file in everywhere like they are in local with vscode.
 
 This project is derived from the original Remote FS project by liximomo (X.L). The original copyright notice and MIT License are retained in [LICENSE](LICENSE); additional attribution is recorded in [NOTICE.md](NOTICE.md).
 
+## Migrating from Remote FS
+
+Remote FS Next is designed as a compatible replacement for the original Remote FS extension:
+
+1. Disable or uninstall the original Remote FS extension.
+2. Install Remote FS Next and reload Visual Studio Code.
+3. Continue using the existing `remotefs.remote` configuration and workspace folders.
+
+Do not enable both extensions at the same time. They intentionally use the same `remotefs.*` commands and `ftp://` and `sftp://` URI schemes for compatibility, so simultaneous activation can cause registration conflicts.
+
+## Validation
+
+Version 0.1.0 has been manually verified in a current Visual Studio Code release with FTP and SFTP connections. Folder mounting, creating, copying, editing, renaming, and deleting files and directories, as well as reconnecting after a reload, were tested successfully.
+
 ## Features
 
 * Open remote from `code` CLI.
