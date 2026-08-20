@@ -1,4 +1,6 @@
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const test = require('node:test');
 const manifest = require('../package.json');
 
@@ -12,4 +14,13 @@ test('keeps the public Remote FS compatibility contracts', () => {
 
 test('uses the maintained SSH stack', () => {
   assert.match(manifest.dependencies.ssh2, /^\^1\./);
+});
+
+test('imports CommonJS constructors through their default export', () => {
+  const ftpProvider = fs.readFileSync(
+    path.join(__dirname, '../src/fs-providers/FTPProvider.ts'),
+    'utf8'
+  );
+
+  assert.match(ftpProvider, /import PQueue from 'p-queue';/);
 });
