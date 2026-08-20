@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as upath from 'upath';
-import * as Ftp from 'jsftp';
+import Ftp from 'jsftp';
 import * as PQueue from 'p-queue';
 import { promptForPassword } from '../host';
 import RemoteFileSystemProvider, { FileSystemError } from '../core/RemoteFileSystemProvider';
@@ -121,7 +121,7 @@ export default class FTPFSProvider extends RemoteFileSystemProvider {
 
   private async _connectClient(option): Promise<ConnectClient> {
     return new Promise<ConnectClient>((resolve, reject) => {
-      const client = new Ftp({
+      const client: any = new Ftp({
         host: option.host,
         port: option.port,
       });

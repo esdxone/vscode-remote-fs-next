@@ -68,7 +68,7 @@ export default class SFTPFSProvider extends RemoteFileSystemProvider {
   }
 
   isFileExist(uri: vscode.Uri, client: ConnectClient): Thenable<boolean> {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       client.stat(uri.path, err => {
         if (err) {
           resolve(false);
@@ -245,19 +245,20 @@ export default class SFTPFSProvider extends RemoteFileSystemProvider {
         .on('ready', () => {
           client.sftp((err, sftp) => {
             if (err) {
-              reject(err);
+              return reject(err);
             }
 
-            sftp.onEnd = cb => {
+            const connectClient = sftp as unknown as ConnectClient;
+            connectClient.onEnd = cb => {
               return client
                 .on('end', cb)
                 .on('close', cb)
                 .on('error', cb);
             };
-            sftp.end = () => {
+            connectClient.end = () => {
               return client.end();
             };
-            resolve(sftp);
+            resolve(connectClient);
           });
         })
         .on('error', err => {
@@ -273,7 +274,7 @@ export default class SFTPFSProvider extends RemoteFileSystemProvider {
       const realPath = await this._realPath(uri.path, client);
       const stat = await this.$stat(uri.with({ path: realPath }), client);
       type = stat.type;
-    } catch (_) {
+    } catch {
       // suppress error, fallback to Unknown for UX
       type = vscode.FileType.Unknown;
     }

@@ -19,7 +19,7 @@ export function addWorkspace(uri: vscode.Uri, name?) {
 }
 
 export function removeWorkspace(uri: vscode.Uri) {
-  const { workspaceFolders, getWorkspaceFolder } = vscode.workspace;
+  const { getWorkspaceFolder } = vscode.workspace;
   const workspaceFolder = getWorkspaceFolder(uri);
   // const index = workspaceFolders.findIndex(wf => {
   //   const wfUri = wf.uri;

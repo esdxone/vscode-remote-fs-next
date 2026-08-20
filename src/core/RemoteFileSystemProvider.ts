@@ -33,7 +33,7 @@ export default abstract class RemoteFileSystemProvider implements vscode.FileSys
 
   private _emitter: vscode.EventEmitter<vscode.FileChangeEvent[]>;
   private _bufferedEvents: vscode.FileChangeEvent[];
-  private _fireSoonHandle: NodeJS.Timer;
+  private _fireSoonHandle: NodeJS.Timeout;
 
   constructor() {
     this._connectManager = new ConnectManager();
@@ -241,7 +241,7 @@ export default abstract class RemoteFileSystemProvider implements vscode.FileSys
     );
   }
 
-  watch(resource: vscode.Uri, opts): vscode.Disposable {
+  watch(_resource: vscode.Uri, _opts): vscode.Disposable {
     // ignore, fires for all changes...
     return new vscode.Disposable(() => undefined);
   }
