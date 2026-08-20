@@ -3,8 +3,15 @@
 .vscode-test/**
 .gitignore
 eslint.config.mjs
-out/test/**
+out/**
+node_modules/buildcheck/**
+node_modules/cpu-features/**
+node_modules/nan/**
+node_modules/ssh2/.github/**
+node_modules/ssh2/examples/**
+node_modules/ssh2/test/**
 src/**
+scripts/**
 test/**
 tsconfig.json
 tslint.json
