@@ -9,6 +9,7 @@ Working with any file in everywhere like they are in local with vscode.
 * Supports current Visual Studio Code releases with updated TypeScript and VS Code API typings.
 * Uses the maintained `ssh2` 1.x stack instead of the obsolete `ssh2` 0.8 / `ssh2-streams` stack, fixing the `isDate` runtime error on current Node.js versions without patching `node_modules`.
 * Uses current linting, testing, and VSIX packaging tooling.
+* Bundles the extension with esbuild for a smaller installation while keeping `ssh2` external for runtime compatibility.
 * Includes automated checks that protect the public Remote FS compatibility contracts.
 * Uses the Remote FS Next name and the maintained fork's repository, issue tracker, and project links.
 * Keeps existing configurations and workspaces compatible: `remotefs.remote`, `remotefs.*`, `ftp://`, and `sftp://` remain unchanged.
